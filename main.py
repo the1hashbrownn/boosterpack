@@ -81,7 +81,7 @@ def main():
                         candidate = token_id
                     current_index += 1
                     
-                if ~selected.contains(candidate) and self.data.card_inventory.get(candidate, default_value=0) > 0:
+                if ~selected.contains(candidate) and self.data.card_inventory.get(candidate, 0) > 0:
                     selected.add(candidate)
                 attempts += 1
                 assert attempts < 100, "RANDOM_SELECTION_FAILED"
