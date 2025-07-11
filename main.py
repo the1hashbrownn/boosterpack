@@ -71,7 +71,7 @@ def main():
                 # Using sp.nat() for slice arguments is correct, but no named parameters
                 sliced_hash = sp.slice(hash, sp.nat(0), sp.nat(8)).unwrap_some(error="HASH_SLICE_ERROR")
                 numeric_hash = sp.to_int(sliced_hash)
-                target_index = sp.as_nat(numeric_hash) % sp.len(token_ids_list)
+                target_index = sp.mod(sp.as_nat(numeric_hash), sp.len(token_ids_list))
 
                 # Correctly iterating to find the element is required.
                 current_index = 0
